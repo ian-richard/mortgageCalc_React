@@ -54,6 +54,7 @@ const Form = ({onFormSubmit}) => {
                 placeholder="Desired mortgage value"
                 value={desiredMortgage}
                 onChange={handleMortgageChange}
+                min="0"
                 />
             <label htmlFor="deposit"
             >Deposit: </label><input id="deposit"
@@ -61,6 +62,7 @@ const Form = ({onFormSubmit}) => {
                 placeholder="Deposit"
                 value={deposit}
                 onChange={handleDepositChange}
+                min="0"
                 />
             <label htmlFor="salary1"> Salary 1: </label>
             <input id="salary1"
@@ -68,6 +70,7 @@ const Form = ({onFormSubmit}) => {
                 placeholder="Salary 1"
                 value={salary1}
                 onChange={handleSalary1Change}
+                min="0"
                 />
                 <label htmlFor="salary2"> Salary 2: </label>
             <input id="salary2"
@@ -75,6 +78,7 @@ const Form = ({onFormSubmit}) => {
                 placeholder="Salary 2"
                 value={salary2}
                 onChange={handleSalary2Change}
+                min="0"
                 /><p></p>
             <input 
                 type="submit"
