@@ -3,12 +3,18 @@ import  React, {useState} from 'react';
 const Form = ({onFormSubmit}) => {
 
     const [desiredMortgage, setDesiredMortgage] = useState(0);
+    const [deposit, setDeposit] = useState(0);
     const [salary1, setSalary1] = useState(0);
     const [salary2, setSalary2] = useState(0);
 
     const handleMortgageChange = (evt) => {
         const newNum = parseInt(evt.target.value);
         setDesiredMortgage(newNum);
+    }
+
+    const handleDepositChange = (evt) => {
+        const newNum = parseInt(evt.target.value);
+        setDeposit(newNum);
     }
 
     const handleSalary1Change = (evt) => {
@@ -23,10 +29,10 @@ const Form = ({onFormSubmit}) => {
 
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
-        onFormSubmit(salary1, salary2, desiredMortgage);
+        onFormSubmit(salary1, salary2, desiredMortgage, deposit);
         
         console.log(salary1, salary2);
-        if (!desiredMortgage || !salary1 || !salary2){
+        if (!desiredMortgage || !salary1 || !salary2) {
             return
         }
 
@@ -48,6 +54,13 @@ const Form = ({onFormSubmit}) => {
                 placeholder="Desired mortgage value"
                 value={desiredMortgage}
                 onChange={handleMortgageChange}
+                />
+            <label htmlFor="deposit"
+            >Deposit: </label><input id="deposit"
+                type="number"
+                placeholder="Deposit"
+                value={deposit}
+                onChange={handleDepositChange}
                 />
             <label htmlFor="salary1"> Salary 1: </label>
             <input id="salary1"

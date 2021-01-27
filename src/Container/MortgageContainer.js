@@ -8,12 +8,12 @@ const MortgageContainer = () => {
     const [difference, setDifference] = useState(0);
 
 
-    const mortgageOffer = (salary1, salary2, desiredMortgage) => {
+    const mortgageOffer = (salary1, salary2, desiredMortgage, deposit) => {
         let combinedCount = salary1 + salary2;
         let multiplier = combinedCount * 3;
         console.log(multiplier);
         setMortgage(multiplier);
-        let difference = desiredMortgage - multiplier;
+        let difference = (desiredMortgage - deposit) - multiplier;
         setDifference(difference); 
         
 
