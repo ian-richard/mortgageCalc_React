@@ -11,58 +11,62 @@ const Form = ({onFormSubmit}) => {
     }
 
     const handleSalary1Change = (evt) => {
-        setSalary1(evt.target.value);
+        const num1 = parseInt(evt.target.value);
+        setSalary1(num1);
     }
 
     const handleSalary2Change = (evt) => {
-        setSalary2(evt.target.value);
+        const num2 = parseInt(evt.target.value);
+        setSalary2(num2);
     }
 
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
-        const desiredMortgageToSubmit = desiredMortgage.trim();
-        const salary1ToSubmit = salary1.trim();
-        const salary2ToSubmit = salary2.trim();
-        if (!desiredMortgageToSubmit || !salary1ToSubmit || salary2ToSubmit){
-            return
-        }
+        
+        console.log(salary1, salary2, desiredMortgage);
+        // if (!desiredMortgageToSubmit || !salary1ToSubmit || salary2ToSubmit){
+        //     return
+        // }
 
-        onFormSubmit({
-            desiredMortgage: desiredMortgageToSubmit,
-            salary1: salary1ToSubmit,
-            salary2: salary2ToSubmit
-        });
 
-        setDesiredMortgage(0);
-        setSalary1(0);
-        setSalary2(0);
+
+        // setDesiredMortgage("");
+        // setSalary1("");
+        // setSalary2("");
 
     }
 
+    // <label htmlFor="desiredMortgage"
+    //         >Desired Mortgage</label><input id="desiredMortgage"
+    //             type="number"
+    //             placeholder="Desired mortgage value"
+    //             value={desiredMortgage}
+    //             onChange={handleMortgageChange}
+    //             />
+
     return (
-        <form onSubmit={handleFormSubmit}>
-            <input 
-                type="text"
-                placeholder="Desired mortgage value"
-                value={desiredMortgage}
-                onChange={handleMortgageChange}
-                />
-            <input
-                type="text"
+        <form>
+            
+            <label htmlFor="salary1"> Salary 1</label>
+            <input id="salary1"
+                type="number"
                 placeholder="Salary 1"
                 value={salary1}
                 onChange={handleSalary1Change}
                 />
-            <input
-                type="text"
+                <label htmlFor="salary2"> Salary 2</label>
+            <input id="salary2"
+                type="number"
                 placeholder="Salary 2"
                 value={salary2}
                 onChange={handleSalary2Change}
                 />
-            <input
+            <input 
                 type="submit"
-                value="Post"
-                />
+                value="Submit"
+                onClick={handleFormSubmit}/>
+                <p></p>
+           
         </form> 
     )
     }
