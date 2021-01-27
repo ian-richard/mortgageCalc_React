@@ -7,7 +7,8 @@ const Form = ({onFormSubmit}) => {
     const [salary2, setSalary2] = useState(0);
 
     const handleMortgageChange = (evt) => {
-        setDesiredMortgage(evt.target.value);
+        const newNum = parseInt(evt.target.value);
+        setDesiredMortgage(newNum);
     }
 
     const handleSalary1Change = (evt) => {
@@ -22,12 +23,12 @@ const Form = ({onFormSubmit}) => {
 
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
-        onFormSubmit(salary1, salary2);
+        onFormSubmit(salary1, salary2, desiredMortgage);
         
-        console.log(salary1, salary2, desiredMortgage);
-        // if (!desiredMortgageToSubmit || !salary1ToSubmit || salary2ToSubmit){
-        //     return
-        // }
+        console.log(salary1, salary2);
+        if (!desiredMortgage || !salary1 || !salary2){
+            return
+        }
 
 
 
@@ -37,31 +38,31 @@ const Form = ({onFormSubmit}) => {
 
     }
 
-    // <label htmlFor="desiredMortgage"
-    //         >Desired Mortgage</label><input id="desiredMortgage"
-    //             type="number"
-    //             placeholder="Desired mortgage value"
-    //             value={desiredMortgage}
-    //             onChange={handleMortgageChange}
-    //             />
+
 
     return (
         <form>
-            
-            <label htmlFor="salary1"> Salary 1</label>
+            <label htmlFor="desiredMortgage"
+            >Desired Mortgage: </label><input id="desiredMortgage"
+                type="number"
+                placeholder="Desired mortgage value"
+                value={desiredMortgage}
+                onChange={handleMortgageChange}
+                />
+            <label htmlFor="salary1"> Salary 1: </label>
             <input id="salary1"
                 type="number"
                 placeholder="Salary 1"
                 value={salary1}
                 onChange={handleSalary1Change}
                 />
-                <label htmlFor="salary2"> Salary 2</label>
+                <label htmlFor="salary2"> Salary 2: </label>
             <input id="salary2"
                 type="number"
                 placeholder="Salary 2"
                 value={salary2}
                 onChange={handleSalary2Change}
-                />
+                /><p></p>
             <input 
                 type="submit"
                 value="Submit"
