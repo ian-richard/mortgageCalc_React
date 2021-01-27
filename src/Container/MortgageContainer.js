@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 import Form from '../Components/Form';
 
 
-const MortgageContainer = ({salary1, salary2}) => {
+const MortgageContainer = () => {
 
     const [mortgage, setMortgage] = useState(0);
 
 
-    const mortgageOffer = () => {
+    const mortgageOffer = (salary1, salary2) => {
         let combinedCount = salary1 + salary2;
         let multiplier = combinedCount * 3;
         console.log(multiplier);
@@ -21,7 +21,7 @@ const MortgageContainer = ({salary1, salary2}) => {
         <>
         <p>Your can borrow: £{mortgage}</p>
         
-        <Form handleFormSubmit={mortgageOffer}/>
+        <Form onFormSubmit={mortgageOffer}/>
         </>
         
     )

@@ -22,6 +22,7 @@ const Form = ({onFormSubmit}) => {
 
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
+        onFormSubmit(salary1, salary2);
         
         console.log(salary1, salary2, desiredMortgage);
         // if (!desiredMortgageToSubmit || !salary1ToSubmit || salary2ToSubmit){
