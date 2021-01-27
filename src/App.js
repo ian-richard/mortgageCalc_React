@@ -3,9 +3,10 @@ import MortgageContainer from "./Container/MortgageContainer";
 
 function App() {
   return (
-    <div>
+  <>
       <p>App</p>
-    </div>
+      <MortgageContainer/>
+  </>
   );
 }
 
